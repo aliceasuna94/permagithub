@@ -7,7 +7,7 @@ async function sendFileToBlockchain(){
     var filename = document.getElementById('text-file').value;
     var comment = document.getElementById('text-com').value;
     var code = document.getElementById('text-code').value;
-    var appname = "testers-permagithub-alice";
+    var appname = "permagithub-alice";
     var typecontent = "file";
     var active = "true";
     var datecreated = Date.now();
