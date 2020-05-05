@@ -6,7 +6,7 @@ async function sendRepToBlockchain(){
     var title = document.getElementById('text-rep').value;
     var desc = document.getElementById('text-desc').value;
     var tag = document.getElementById('text-tag').value;
-    var appname = "testers-permagithub-alice";
+    var appname = "permagithub-alice";
     var typecontent = "repository";
     var active = "true";
     var datecreated = Date.now();
