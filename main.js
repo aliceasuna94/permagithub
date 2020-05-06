@@ -1,4 +1,5 @@
 const arweave = Arweave.init({host:"arweave.net",port:443,logging:!0,protocol:"https"});
+
 function openNextwallet() {
                 const input = document.getElementById('next-wallet');
                 if (input) {
@@ -351,40 +352,50 @@ async function showFile(){
     }
 }
 
-function addRepositoryConfirm() {
+async function addRepositoryConfirm() {
     var title = document.getElementById('text-rep').value;
     var desc = document.getElementById('text-desc').value;
     var tag = document.getElementById('text-tag').value;
+    var size =  new Blob(['<html>Rep</html>']).size;
+    let checking = await fetch('https://arweave.net/price/'+size);
+    let result = await checking.text();
+    let fee = ( result/1000000000000 );
 
     if (title != "" && desc != "" && tag != "") {
-        if (ar >= "1") {
+
+        if (fee <= ar) {
               if (confirm("Are you sure to create repository? you can't delete or edit your repository after saved to Blockchain!")) {
                     sendRepToBlockchain();
               } else {
 
               }
         }else{
-            alert("You must have minimun 1 AR to save !");
+            alert("You must have minimun "+fee+" AR to save !");
         }
     }else {
         alert("Please fill all form !");
     }
 }
 
-function addFileConfirm() {
+async function addFileConfirm() {
     var filename = document.getElementById('text-file').value;
     var comment = document.getElementById('text-com').value;
     var code = document.getElementById('text-code').value;
-
+    var size =  new Blob([code]).size;
+    let checking = await fetch('https://arweave.net/price/'+size);
+    let result = await checking.text();
+    let fee = ( result/1000000000000 );
+    console.log(fee);
     if (filename != "" && comment != "" && code != "") {
-        if (ar >= "1") {
+
+        if (fee <= ar) {
               if (confirm("Are you sure to save this file? you can't delete or edit your file after saved to Blockchain!")) {
                     sendFileToBlockchain();
               } else {
 
               }
         }else{
-            alert("You must have minimun 1 AR to save !");
+            alert("You must have minimun "+fee+" AR to save !");
         }
     }else {
         alert("Please fill all form !");
