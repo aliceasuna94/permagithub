@@ -7,4 +7,4 @@ You can use this permaweb on site below.
 
 New Update: Adding fee check before send transaction.
 
-https://arweave.net/4ury5WZ2uKMBtYu1lak504lRxRca7rLhhK9ZfpxYUNA
+https://arweave.net/_qQQn8vYRuS3a716pHlisUnpyLIr3cvaB2esrcoOON0
